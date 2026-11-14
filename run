@@ -1,0 +1,4 @@
+bison -d -v --graph=parser.dot parser.y
+flex lexer.l
+gcc -o vortex lex.yy.c parser.tab.c
+gcc -DLEXER_ONLY -o vortex_lexer lex.yy.c

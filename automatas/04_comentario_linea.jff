@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<state id="0" name="q0">
+			<x>80.0</x>
+			<y>150.0</y>
+			<label>inicio</label>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>300.0</x>
+			<y>150.0</y>
+			<label>leído / : falta otra /</label>
+		</state>
+		<state id="2" name="q2">
+			<x>520.0</x>
+			<y>150.0</y>
+			<label>LINE_COMMENT (se ignora hasta el fin de línea)</label>
+			<final/>
+		</state>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>/</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>/</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>/</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>*</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>#</read>
+		</transition>
+		<note>
+			<text>QUÉ RECONOCE: comentario de una línea (se descarta, no genera token)
+EXPRESIÓN REGULAR: "//"[^\n]*
+SÍMBOLOS: / = barra    * = asterisco    # = cualquier otro carácter
+ACEPTA: // hola -&gt; //#####    // -&gt; //
+RECHAZA: / -&gt; / (una sola barra es el operador división, ver 06)
+El salto de línea no tiene transición: ahí termina el comentario.</text>
+			<x>60.0</x>
+			<y>280.0</y>
+		</note>
+	</automaton>
+</structure>

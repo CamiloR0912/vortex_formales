@@ -1,0 +1,2 @@
+ok
+[Runtime error] line 4: if condition requires bool, got int

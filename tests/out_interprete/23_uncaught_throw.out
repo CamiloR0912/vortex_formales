@@ -1,0 +1,2 @@
+age ok: 20
+[Uncaught exception] line 3: invalid age: -5

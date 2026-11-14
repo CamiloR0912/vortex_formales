@@ -1,0 +1,17 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=circle, label="q1"];
+  2 [shape=circle, label="q2"];
+  3 [shape=doublecircle, label="q3"];
+  label="q0:  inicio\lq1:  dentro de la cadena\lq2:  leído \\ : el siguiente carácter va literal\lq3:  STRING_LIT (comilla de cierre)\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="\""];
+  1 -> 1 [label="otro"];
+  1 -> 2 [label="\\"];
+  2 -> 1 [label="\"  \\  otro"];
+  1 -> 3 [label="\""];
+}

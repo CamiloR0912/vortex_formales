@@ -1,0 +1,107 @@
+// Funciones: recursión, parámetros nombrados y por defecto, sobrecarga, anidadas, break/continue
+
+// ---- Recursión ----
+func int fact(int n) {
+    if (n <= 1) { return 1; }
+    return n * fact(n - 1);
+}
+print("fact(10) =", fact(10));                    // 3628800
+
+func int fib(int n) {
+    if (n < 2) { return n; }
+    return fib(n - 1) + fib(n - 2);
+}
+string seq = "";
+for (int i = 0; i < 10; i = i + 1) { seq = seq + fib(i) + " "; }
+print("fib:", seq);
+
+// ---- Recursión mutua: is_even llama a is_odd, que se define después ----
+func bool is_even(int n) { if (n == 0) { return true; }  return is_odd(n - 1); }
+func bool is_odd(int n)  { if (n == 0) { return false; } return is_even(n - 1); }
+print("7 is odd:", is_odd(7));
+
+// ---- Parámetros posicionales, nombrados y por defecto ----
+func float area(float base, float height = 1.0, string unit = "m2") {
+    print("  area of", base, "x", height, unit);
+    return base * height / 2;
+}
+print(area(4.0, 3.0));                            // posicionales
+print(area(4.0, height = 3.0));                   // posicional + nombrado
+print(area(height = 2.0, base = 10.0));           // nombrados en otro orden
+print(area(5.0, unit = "cm2"));                   // salta height (usa su valor por defecto)
+print(area(6));                                   // int se promueve a float
+
+// ---- Sobrecarga por tipo de parámetros ----
+func string describe(int x)        { return "int " + x; }
+func string describe(float x)      { return "float " + x; }
+func string describe(string x)     { return "string '" + x + "'"; }
+func string describe(int x, int y) { return "pair (" + x + ", " + y + ")"; }
+print(describe(7));
+print(describe(7.5));
+print(describe("hi"));
+print(describe(1, 2));
+
+// ---- Funciones anidadas: la interna ve y modifica variables de la externa ----
+func int sum_of_squares(int n) {
+    int calls = 0;
+    func int square(int x) {
+        calls = calls + 1;
+        return x * x;
+    }
+    int total = 0;
+    for (int i = 1; i <= n; i = i + 1) { total = total + square(i); }
+    print("  square was called", calls, "times");
+    return total;
+}
+print("sum of squares 1..4 =", sum_of_squares(4));  // 30
+
+// ---- Función anidada recursiva ----
+func int digits(int n) {
+    func int count(int m) {
+        if (m < 10) { return 1; }
+        return 1 + count(m / 10);
+    }
+    return count(n);
+}
+print("digits(98765) =", digits(98765));          // 5
+
+// ---- void, return temprano y shadowing de parámetros ----
+int x = 100;
+func void show(int x) {                             // el parámetro x oculta la x global
+    if (x < 0) { print("  negative"); return; }
+    print("  x =", x);
+}
+show(5);
+show(-1);
+print("global x =", x);                           // 100
+
+// ---- break y continue ----
+string odds = "";
+for (int i = 0; i < 100; i = i + 1) {
+    if (i % 2 == 0) { continue; }
+    if (i > 9) { break; }
+    odds = odds + i + " ";
+}
+print("odds:", odds);
+
+int n = 0;
+while (true) {
+    n = n + 1;
+    switch (n) {
+        case 3: { continue; }   // dentro de un switch, break/continue actúan sobre el ciclo
+        case 5: { break; }
+    }
+    print("  n =", n);
+}
+
+// ---- return dentro de ciclos anidados ----
+func int first_divisor(int k) {
+    for (int d = 2; d < k; d = d + 1) {
+        while (true) {
+            if (k % d == 0) { return d; }
+            break;
+        }
+    }
+    return k;
+}
+print("first divisor of 91 =", first_divisor(91));  // 7

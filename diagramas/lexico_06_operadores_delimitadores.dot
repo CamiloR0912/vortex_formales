@@ -1,0 +1,37 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=doublecircle, label="q1"];
+  2 [shape=doublecircle, label="q2"];
+  3 [shape=doublecircle, label="q3"];
+  4 [shape=doublecircle, label="q4"];
+  5 [shape=doublecircle, label="q5"];
+  6 [shape=doublecircle, label="q6"];
+  7 [shape=doublecircle, label="q7"];
+  8 [shape=doublecircle, label="q8"];
+  9 [shape=circle, label="q9"];
+  10 [shape=doublecircle, label="q10"];
+  11 [shape=circle, label="q11"];
+  12 [shape=doublecircle, label="q12"];
+  13 [shape=doublecircle, label="q13"];
+  14 [shape=doublecircle, label="q14"];
+  label="q0:  inicio\lq1:  =  asignación\lq2:  ==  igual a\lq3:  !  negación\lq4:  !=  distinto de\lq5:  <  menor que\lq6:  <=  menor o igual\lq7:  >  mayor que\lq8:  >=  mayor o igual\lq9:  leído & : falta otro & (solo es error)\lq10:  &&  y lógico\lq11:  leído | : falta otro | (solo es error)\lq12:  ||  o lógico\lq13:  + - * / %  aritméticos\lq14:  ( ) { } [ ] , ; :  delimitadores\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="="];
+  1 -> 2 [label="="];
+  0 -> 3 [label="!"];
+  3 -> 4 [label="="];
+  0 -> 5 [label="<"];
+  5 -> 6 [label="="];
+  0 -> 7 [label=">"];
+  7 -> 8 [label="="];
+  0 -> 9 [label="&"];
+  9 -> 10 [label="&"];
+  0 -> 11 [label="|"];
+  11 -> 12 [label="|"];
+  0 -> 13 [label="+  -  *  /  %"];
+  0 -> 14 [label="(  )  {  }  [  ]  ,  ;  :"];
+}

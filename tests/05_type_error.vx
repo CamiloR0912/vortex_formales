@@ -1,0 +1,4 @@
+// Error de tipos: un float no se puede guardar en un int sin conversión explícita
+int n = 3;
+print(n);
+n = 3.5;

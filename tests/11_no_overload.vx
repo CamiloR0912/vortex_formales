@@ -1,0 +1,5 @@
+// Ninguna versión de la función acepta un bool
+func string describe(int x)    { return "int"; }
+func string describe(string x) { return "string"; }
+print(describe(3));
+print(describe(true));

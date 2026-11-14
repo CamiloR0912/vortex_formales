@@ -1,0 +1,5 @@
+// Recursión infinita: el intérprete la detiene con un error en vez de reventar
+func int forever(int n) {
+    return forever(n + 1);
+}
+print(forever(0));

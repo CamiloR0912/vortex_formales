@@ -1,0 +1,26 @@
+12 Fizz
+13
+14
+15 FizzBuzz
+sum 1..10 = 55
+1 2 3 
+2 4 6 
+3 6 9 
+global i = 11
+c = 5
+c = 3
+c = 1
+2 is prime
+3 is prime
+5 is prime
+7 is prime
+11 is prime
+13 is prime
+17 is prime
+19 is prime
+1 Monday
+2 Tuesday
+3 Wednesday
+4 unknown
+2 * 3 = 6
+greater than 5

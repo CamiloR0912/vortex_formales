@@ -1,0 +1,6 @@
+// Cadenas sin comilla de cierre: el error se reporta en la línea donde abrió
+string ok = "closed string";
+string bad = "missing quote;
+print("this one is fine");
+print("Hello \"Vortex\" + name);
+string after = "the lexer recovered";

@@ -1,0 +1,2 @@
+[[1, 2], [3, 4]]
+[Runtime error] line 4: matrix rows must have the same length (row 0 has 2, row 1 has 1)

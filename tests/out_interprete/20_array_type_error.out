@@ -1,0 +1,2 @@
+[1.0, 2.5]
+[Runtime error] line 4: mixed element types in literal: int and string

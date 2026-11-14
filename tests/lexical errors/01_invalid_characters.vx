@@ -1,0 +1,8 @@
+// Caracteres que no pertenecen al alfabeto de Vortex
+int a = 5;
+int b = a @ 2;          // '@' no es un operador
+float c = 3.5 # 1;      // '#' tampoco
+string s = "ok" $;      // '$' fuera de una cadena
+bool d = a ? b;         // no existe el operador ternario
+int e = a & b;          // '&' suelto (solo existe '&&')
+print(a, b);            // línea válida: el análisis continúa

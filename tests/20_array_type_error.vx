@@ -1,0 +1,4 @@
+// Errores de tipo en arreglos
+vector<float> ok = [1, 2.5];        // int + float → vector<float>: válido
+print(ok);
+vector<int> bad = [1, "two", 3];    // mezcla int con string

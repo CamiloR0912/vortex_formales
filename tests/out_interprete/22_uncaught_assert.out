@@ -1,0 +1,2 @@
+checking n
+[Assertion error] line 4: assertion failed: n must be positive

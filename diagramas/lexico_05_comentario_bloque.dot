@@ -1,0 +1,20 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=circle, label="q1"];
+  2 [shape=circle, label="q2"];
+  3 [shape=circle, label="q3"];
+  4 [shape=doublecircle, label="q4"];
+  label="q0:  inicio\lq1:  leído /\lq2:  dentro del comentario (estado COMMENT)\lq3:  leído * : ¿viene / para cerrar?\lq4:  BLOCK_COMMENT (cerrado con */)\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="/"];
+  1 -> 2 [label="*"];
+  2 -> 2 [label="otro  /"];
+  2 -> 3 [label="*"];
+  3 -> 3 [label="*"];
+  3 -> 2 [label="otro"];
+  3 -> 4 [label="/"];
+}

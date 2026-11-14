@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<state id="0" name="q0">
+			<x>80.0</x>
+			<y>150.0</y>
+			<label>inicio</label>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>320.0</x>
+			<y>150.0</y>
+			<label>IDENTIFIER (sigue leyendo letras, dígitos o _)</label>
+			<final/>
+		</state>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>L</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>L</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>D</read>
+		</transition>
+		<note>
+			<text>QUÉ RECONOCE: nombres de variables y funciones
+EXPRESIÓN REGULAR: [a-zA-Z_][a-zA-Z0-9_]*
+SÍMBOLOS: L = letra o _     D = dígito
+ACEPTA: x -&gt; L    v2 -&gt; LD    sum_of_squares -&gt; LLLLLLLLLLLLLL
+RECHAZA: 2v -&gt; DL (no puede empezar con dígito)</text>
+			<x>60.0</x>
+			<y>280.0</y>
+		</note>
+	</automaton>
+</structure>

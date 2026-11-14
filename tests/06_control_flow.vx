@@ -1,0 +1,72 @@
+// if / else if / else, while, for y switch-case (anidados)
+
+// ---- if / else if / else ----
+for (int n = 12; n <= 15; n = n + 1) {
+    if (n % 15 == 0) {
+        print(n, "FizzBuzz");
+    } else if (n % 3 == 0) {
+        print(n, "Fizz");
+    } else {
+        print(n);
+    }
+}
+
+// ---- while: suma de 1 a 10 ----
+int i = 1;
+int total = 0;
+while (i <= 10) {
+    total = total + i;
+    i = i + 1;
+}
+print("sum 1..10 =", total);              // 55
+
+// ---- for anidado + shadowing: la i del for oculta la i global ----
+for (int i = 1; i <= 3; i = i + 1) {
+    string row = "";
+    for (int j = 1; j <= 3; j = j + 1) {
+        row = row + i * j + " ";
+    }
+    print(row);
+}
+print("global i =", i);                   // 11: el for no la tocó
+
+// ---- for con asignación (sin declarar) y sin paso ----
+int c = 5;
+for (c = 5; c > 0; ) {
+    print("c =", c);
+    c = c - 2;
+}
+
+// ---- while + if anidados: primos menores que 20 ----
+for (int k = 2; k < 20; k = k + 1) {
+    bool prime = true;
+    int d = 2;
+    while (d * d <= k && prime) {
+        if (k % d == 0) { prime = false; }
+        d = d + 1;
+    }
+    if (prime) { print(k, "is prime"); }
+}
+
+// ---- switch-case con enteros (sin fall-through) ----
+for (int day = 1; day <= 4; day = day + 1) {
+    switch (day) {
+        case 1:     { print(day, "Monday"); }
+        case 2:     { print(day, "Tuesday"); }
+        case 1 + 2: { print(day, "Wednesday"); }   // el case acepta expresiones
+        default:    { print(day, "unknown"); }
+    }
+}
+
+// ---- switch con strings y switch anidado ----
+string op = "mul";
+switch (op) {
+    case "add": { print("2 + 3 =", 2 + 3); }
+    case "mul": {
+        print("2 * 3 =", 2 * 3);
+        switch (2 * 3 > 5) {
+            case true:  { print("greater than 5"); }
+            case false: { print("not greater"); }
+        }
+    }
+}

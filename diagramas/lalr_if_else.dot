@@ -1,0 +1,22 @@
+digraph {
+  node [fontname=courier, fontsize=10, shape=box, colorscheme=paired6];
+  edge [fontname=courier, fontsize=10];
+  12 [label="State 12\n\l 36 if_stmt: \"if\" • condition block\l 37        | \"if\" • condition block \"else\" block\l 38        | \"if\" • condition block \"else\" if_stmt\l 40        | \"if\" • error $@1 block\l 41        | \"if\" • condition error ';'\l 42        | \"if\" • condition block \"else\" error ';'\l"];
+  82 [label="State 82\n\l 36 if_stmt: \"if\" condition • block\l 37        | \"if\" condition • block \"else\" block\l 38        | \"if\" condition • block \"else\" if_stmt\l 41        | \"if\" condition • error ';'\l 42        | \"if\" condition • block \"else\" error ';'\l"];
+  135 [label="State 135\n\l 36 if_stmt: \"if\" condition block •\l 37        | \"if\" condition block • \"else\" block\l 38        | \"if\" condition block • \"else\" if_stmt\l 42        | \"if\" condition block • \"else\" error ';'\l"];
+  192 [label="State 192\n\l 37 if_stmt: \"if\" condition block \"else\" • block\l 38        | \"if\" condition block \"else\" • if_stmt\l 42        | \"if\" condition block \"else\" • error ';'\l"];
+  222 [label="State 222\n\l 37 if_stmt: \"if\" condition block \"else\" block •\l"];
+  223 [label="State 223\n\l 38 if_stmt: \"if\" condition block \"else\" if_stmt •\l"];
+  12 -> 82 [style=dashed label="condition"]
+  82 -> 135 [style=dashed label="block"]
+  135 -> 192 [style=solid label="\"else\""]
+  135 -> "135R36" [style=solid]
+  192 -> 12 [style=solid label="\"if\""]
+  192 -> 222 [style=dashed label="block"]
+  192 -> 223 [style=dashed label="if_stmt"]
+  222 -> "222R37" [style=solid]
+  223 -> "223R38" [style=solid]
+ "135R36" [label="R36", fillcolor=3, shape=diamond, style=filled]
+ "222R37" [label="R37", fillcolor=3, shape=diamond, style=filled]
+ "223R38" [label="R38", fillcolor=3, shape=diamond, style=filled]
+}

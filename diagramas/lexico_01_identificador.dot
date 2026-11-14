@@ -1,0 +1,12 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=doublecircle, label="q1"];
+  label="q0:  inicio\lq1:  IDENTIFIER (sigue leyendo letras, dígitos o _)\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="letra, _"];
+  1 -> 1 [label="letra, _  dígito"];
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<state id="0" name="q0">
+			<x>80.0</x>
+			<y>150.0</y>
+			<label>inicio</label>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>300.0</x>
+			<y>150.0</y>
+			<label>INT_LIT (parte entera)</label>
+			<final/>
+		</state>
+		<state id="2" name="q2">
+			<x>520.0</x>
+			<y>150.0</y>
+			<label>leído el punto: falta un dígito</label>
+		</state>
+		<state id="3" name="q3">
+			<x>740.0</x>
+			<y>150.0</y>
+			<label>FLOAT_LIT (parte decimal)</label>
+			<final/>
+		</state>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>D</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>D</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>.</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>D</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>D</read>
+		</transition>
+		<note>
+			<text>QUÉ RECONOCE: enteros (q1) y flotantes (q3)
+EXPRESIÓN REGULAR: entero [0-9]+    flotante [0-9]+\.[0-9]+
+SÍMBOLOS: D = dígito     . = el punto decimal
+ACEPTA: 42 -&gt; DD    3.14 -&gt; D.DD
+RECHAZA: 5. -&gt; D. (termina en q2)    .5 -&gt; .D (el punto no puede ir primero)</text>
+			<x>60.0</x>
+			<y>280.0</y>
+		</note>
+	</automaton>
+</structure>

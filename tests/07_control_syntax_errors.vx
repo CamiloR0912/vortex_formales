@@ -1,0 +1,9 @@
+// Errores sintácticos intencionales en control de flujo: se reportan y NO se ejecuta nada
+int x = 1;
+if (x > 0) print(x);                // las llaves son obligatorias
+while (x < 3) { x = x + 1; }        // correcto
+for (int i = 0; i < 3) { }          // al for le falta un ';'
+switch (x) {
+    default: { print("d"); }
+    case 1: { print("one"); }       // no se permite un case después de default
+}

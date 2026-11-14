@@ -1,0 +1,14 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=circle, label="q1"];
+  2 [shape=doublecircle, label="q2"];
+  label="q0:  inicio\lq1:  leído / : falta otra /\lq2:  LINE_COMMENT (se ignora hasta el fin de línea)\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="/"];
+  1 -> 2 [label="/"];
+  2 -> 2 [label="/  *  otro"];
+}

@@ -1,0 +1,4 @@
+[Invalid construct] line 4: body must be enclosed in braces { } (unexpected identifier, expecting '{')
+[Invalid construct] line 5: body must be enclosed in braces { } (unexpected print, expecting '{')
+[Invalid construct] line 6: body must be enclosed in braces { } (unexpected print, expecting if or '{')
+3 error(s) found; program not executed.

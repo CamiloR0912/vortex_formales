@@ -1,0 +1,7 @@
+// Letras con tilde, ñ y símbolos Unicode no son válidos en el código
+// (sí lo son dentro de cadenas y comentarios: "año", π)
+int año = 2026;
+float π = 3.14159;
+string título = "Año nuevo";
+int x = 5 × 2;
+print("válido: tildes dentro de una cadena");

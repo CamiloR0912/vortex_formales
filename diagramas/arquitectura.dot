@@ -1,0 +1,40 @@
+
+digraph {
+  rankdir=LR; compound=true; nodesep=0.35; ranksep=0.6;
+  node [fontname="Helvetica", fontsize=11, shape=box, style="rounded,filled", fillcolor="#f4f4f4"];
+  edge [fontname="Helvetica", fontsize=10];
+
+  subgraph cluster_construccion {
+    label="Construcción (script run)"; fontname="Helvetica"; style=dashed;
+    lexer_l   [label="lexer.l\nreglas léxicas", fillcolor="#dbe9f6"];
+    parser_y  [label="parser.y\ngramática y reglas de error", fillcolor="#dbe9f6"];
+    flex      [label="flex", shape=ellipse, style=filled];
+    bison     [label="bison -d -v", shape=ellipse, style=filled];
+    lex_c     [label="lex.yy.c\nAFD en C: yylex()"];
+    tab_c     [label="parser.tab.c\ntablas LALR(1): yyparse()"];
+    tab_h     [label="parser.tab.h\ncódigos de token,\nYYSTYPE, YYLTYPE"];
+    gcc       [label="gcc", shape=ellipse, style=filled];
+    vortex    [label="vortex\nejecutable", fillcolor="#dff0d8"];
+
+    lexer_l -> flex -> lex_c -> gcc;
+    parser_y -> bison;
+    bison -> tab_c -> gcc;
+    bison -> tab_h;
+    tab_h -> lex_c [label="#include", style=dashed];
+    gcc -> vortex;
+  }
+
+  subgraph cluster_ejecucion {
+    label="Ejecución (./vortex programa.vx)"; fontname="Helvetica"; style=dashed;
+    fuente  [label="programa.vx", fillcolor="#dbe9f6"];
+    yylex   [label="yylex()\nanalizador léxico"];
+    yyparse [label="yyparse()\nanalizador sintáctico"];
+    salida  [label="Syntactically valid program.\no lista de errores con su línea", fillcolor="#dff0d8"];
+
+    fuente -> yylex [label="caracteres\n(yyin)"];
+    yylex -> yyparse [label="token\nyylval: lexema\nyylloc: línea"];
+    yyparse -> yylex [label="pide el siguiente token", style=dashed];
+    yylex -> salida [label="[Lexical error]"];
+    yyparse -> salida [label="[Syntax error]\n[Invalid construct]"];
+  }
+}

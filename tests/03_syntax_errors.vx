@@ -1,0 +1,8 @@
+// Errores léxicos y sintácticos intencionales: se reportan todos y el programa NO se ejecuta
+int a = 5;
+int b;              // constructo inválido: declaración sin inicializar
+float c = (a + ;    // expresión incompleta
+print(a)            // falta ';' (el error aparece en la línea siguiente)
+string s = "ok";
+int d = 3 @ 4;      // carácter inválido
+print("never printed");

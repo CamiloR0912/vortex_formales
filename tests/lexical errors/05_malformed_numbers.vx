@@ -1,0 +1,5 @@
+// Números mal formados: el punto solo existe dentro de un flotante como 3.14
+float a = 5.;           // falta la parte decimal
+float b = .5;           // falta la parte entera
+float c = 1.2.3;        // dos puntos decimales
+float d = 2.718;        // correcto

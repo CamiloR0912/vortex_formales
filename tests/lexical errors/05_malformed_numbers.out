@@ -1,0 +1,5 @@
+[Lexical error] line 2: invalid character '.'
+[Lexical error] line 3: invalid character '.'
+[Lexical error] line 4: invalid character '.'
+[Syntax error] line 4: syntax error, unexpected integer literal, expecting ';'
+4 error(s) found.

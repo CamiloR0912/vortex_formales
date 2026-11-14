@@ -1,0 +1,5 @@
+[Lexical error] line 3: unterminated string
+[Syntax error] line 4: syntax error, unexpected print
+[Lexical error] line 5: unterminated string
+[Syntax error] line 6: syntax error, unexpected string, expecting ')'
+4 error(s) found.

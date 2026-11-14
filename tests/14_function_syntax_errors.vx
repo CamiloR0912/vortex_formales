@@ -1,0 +1,6 @@
+// Errores sintácticos en funciones: se reportan y NO se ejecuta nada
+func int add(int a, int b) { return a + b; }
+func int bad(x) { return x; }               // parámetro sin tipo
+print(add(a = 1, 2));                       // posicional después de nombrado
+func int nobody(int a);                     // función sin cuerpo
+print(add(1, 2));

@@ -1,0 +1,22 @@
+// Tipos básicos, precedencia de operadores y print
+int a = 7;
+int b = 2;
+float pi = 3.14159;
+bool ok = true;
+string name = "Vortex";
+
+print(a + b * 3);                   // 13  (* antes que +)
+print((a + b) * 3);                 // 27  (paréntesis)
+print(a / b, a % b);                // 3 1 (división entera)
+print(a / 2.0);                     // 3.5 (int con float da float)
+print(-a + 10);                     // 3   (menos unario)
+print(2 * pi);                      // 6.28318
+print(a > b && !ok || a == 7);      // true: (true && false) || true
+print("Hello " + name + " " + a);   // concatenación
+
+float f = 5;                        // int se promueve a float
+print(f);                           // 5.0
+/* comentario
+   de bloque */
+a = a + 1;
+print(a);                           // 8

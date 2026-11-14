@@ -1,0 +1,8 @@
+// Un comentario de bloque que nunca se cierra
+int a = 1;
+/* este comentario si cierra */
+print(a);
+/* este comentario empieza en la línea 5
+   y nunca se cierra, así que todo lo que sigue
+   se lo come el comentario:
+print(a + 1);

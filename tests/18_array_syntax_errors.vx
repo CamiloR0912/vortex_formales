@@ -1,0 +1,5 @@
+// Errores sintácticos con vectores y matrices: se reportan y NO se ejecuta nada
+vector v = [1, 2];                  // falta el tipo de elemento: vector<int>
+vector<vector<int>> vv = [];        // no hay vectores de vectores (para eso existe matrix)
+vector<int> w = [1, 2;              // falta ']'
+int s = sum[1, 2];                  // las reducciones se llaman con paréntesis

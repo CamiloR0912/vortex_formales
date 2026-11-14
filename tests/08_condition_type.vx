@@ -1,0 +1,4 @@
+// Error de tipos: las condiciones deben ser bool (no se aceptan enteros como en C)
+int x = 1;
+if (x == 1) { print("ok"); }
+if (x) { print("never printed"); }

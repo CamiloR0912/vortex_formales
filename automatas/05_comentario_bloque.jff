@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<state id="0" name="q0">
+			<x>60.0</x>
+			<y>150.0</y>
+			<label>inicio</label>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>240.0</x>
+			<y>150.0</y>
+			<label>leído /</label>
+		</state>
+		<state id="2" name="q2">
+			<x>440.0</x>
+			<y>150.0</y>
+			<label>dentro del comentario (estado COMMENT)</label>
+		</state>
+		<state id="3" name="q3">
+			<x>640.0</x>
+			<y>150.0</y>
+			<label>leído * : ¿viene / para cerrar?</label>
+		</state>
+		<state id="4" name="q4">
+			<x>840.0</x>
+			<y>150.0</y>
+			<label>BLOCK_COMMENT (cerrado con */)</label>
+			<final/>
+		</state>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>/</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>*</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>#</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>/</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>*</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>*</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>2</to>
+			<read>#</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read>/</read>
+		</transition>
+		<note>
+			<text>QUÉ RECONOCE: comentario de varias líneas (se descarta, no genera token)
+EXPRESIÓN REGULAR: "/*" ... "*/"   (en lexer.l: estado exclusivo %x COMMENT)
+SÍMBOLOS: / = barra    * = asterisco    # = cualquier otro carácter (incluye saltos de línea)
+ACEPTA: /* a */ -&gt; /*###*/    /***/ -&gt; /***/
+RECHAZA: /* sin cerrar -&gt; /*######## (termina en q2: unterminated block comment)</text>
+			<x>60.0</x>
+			<y>280.0</y>
+		</note>
+	</automaton>
+</structure>

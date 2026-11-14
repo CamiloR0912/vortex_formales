@@ -1,0 +1,10 @@
+[Lexical error] line 3: invalid character '@'
+[Syntax error] line 3: syntax error, unexpected integer literal, expecting ';'
+[Lexical error] line 4: invalid character '#'
+[Syntax error] line 4: syntax error, unexpected integer literal, expecting ';'
+[Lexical error] line 5: invalid character '$'
+[Lexical error] line 6: invalid character '?'
+[Syntax error] line 6: syntax error, unexpected identifier, expecting ';'
+[Lexical error] line 7: invalid character '&'
+[Syntax error] line 7: syntax error, unexpected identifier, expecting ';'
+9 error(s) found.

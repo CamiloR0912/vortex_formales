@@ -1,0 +1,17 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=doublecircle, label="q1"];
+  2 [shape=circle, label="q2"];
+  3 [shape=doublecircle, label="q3"];
+  label="q0:  inicio\lq1:  INT_LIT (parte entera)\lq2:  leído el punto: falta un dígito\lq3:  FLOAT_LIT (parte decimal)\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="dígito"];
+  1 -> 1 [label="dígito"];
+  1 -> 2 [label="."];
+  2 -> 3 [label="dígito"];
+  3 -> 3 [label="dígito"];
+}

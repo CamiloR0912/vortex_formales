@@ -1,0 +1,5 @@
+// Un assert que falla fuera de un try termina el programa con su tipo de error y línea
+int n = -3;
+print("checking n");
+assert(n > 0, "n must be positive");
+print("never printed");

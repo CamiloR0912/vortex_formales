@@ -1,0 +1,9 @@
+[Lexical error] line 3: invalid character 'ñ'
+[Syntax error] line 3: syntax error, unexpected identifier, expecting ';' or '='
+[Lexical error] line 4: invalid character 'π'
+[Syntax error] line 4: syntax error, unexpected '=', expecting identifier
+[Lexical error] line 5: invalid character 'í'
+[Syntax error] line 5: syntax error, unexpected identifier, expecting ';' or '='
+[Lexical error] line 6: invalid character '×'
+[Syntax error] line 6: syntax error, unexpected integer literal, expecting ';'
+8 error(s) found.

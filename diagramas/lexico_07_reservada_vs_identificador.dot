@@ -1,0 +1,22 @@
+digraph {
+  rankdir=LR;
+  node [fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=11];
+  inicio [shape=point, width=0.1];
+  0 [shape=circle, label="q0"];
+  inicio -> 0;
+  1 [shape=circle, label="q1"];
+  2 [shape=circle, label="q2"];
+  3 [shape=circle, label="q3"];
+  4 [shape=doublecircle, label="q4"];
+  5 [shape=circle, label="q5"];
+  6 [shape=doublecircle, label="q6"];
+  label="q0:  inicio\lq1:  regla 1: palabra \"int\"\lq2:  leído i\lq3:  leído in\lq4:  TYPE int (regla 1)\lq5:  regla 2: {ID}\lq6:  IDENTIFIER (regla 2)\l"; labelloc=b; labeljust=l; fontname="Helvetica"; fontsize=10;
+  0 -> 1 [label="ε"];
+  0 -> 5 [label="ε"];
+  1 -> 2 [label="i"];
+  2 -> 3 [label="n"];
+  3 -> 4 [label="t"];
+  5 -> 6 [label="i  n  t  letra, _"];
+  6 -> 6 [label="i  n  t  letra, _  dígito"];
+}

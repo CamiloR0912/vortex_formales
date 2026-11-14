@@ -1,0 +1,19 @@
+// Producciones de error: cada línea marcada debe reportar [Invalid construct] con su línea.
+// La última es un error de sintaxis genérico ([Syntax error]) para comparar.
+int x = 1;
+int y;                                  // variable sin inicializar
+vector v = [1, 2];                      // vector sin tipo de elemento
+if x > 0 { print(x); }                  // condición sin paréntesis
+while (x = 1) { x = 2; }                // '=' en lugar de '=='
+if (x > ) { print(x); }                 // condición inválida
+print(x);
+else { print("orphan"); }               // else sin if
+case 1: { print("one"); }               // case fuera de un switch
+try { print(x); }                       // try sin catch
+print(x);
+catch (e) { print(e); }                 // catch sin try
+func int f(int a);                      // función sin cuerpo
+assert();                               // assert sin condición
+print(max2(a = 1, 2));                  // posicional después de nombrado
+for (int i = 0; i < 3) { }              // encabezado de for mal formado
+int z = 3 + ;                           // error de sintaxis genérico

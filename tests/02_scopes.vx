@@ -1,0 +1,15 @@
+// Ámbitos léxicos y variable shadowing
+int x = 1;
+{
+    print(x);             // 1: todavía se ve la x global
+    int x = 2;            // shadowing: oculta la x global
+    print(x);             // 2
+    {
+        int x = x * 10;   // el inicializador usa la x del bloque padre
+        print(x);         // 20
+        x = 99;           // modifica solo la x más interna
+    }
+    print(x);             // 2
+    x = 5;
+}
+print(x);                 // 1: la global nunca cambió

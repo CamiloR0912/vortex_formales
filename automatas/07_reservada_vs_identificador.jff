@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<state id="0" name="q0">
+			<x>60.0</x>
+			<y>260.0</y>
+			<label>inicio</label>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>220.0</x>
+			<y>110.0</y>
+			<label>regla 1: palabra "int"</label>
+		</state>
+		<state id="2" name="q2">
+			<x>400.0</x>
+			<y>110.0</y>
+			<label>leído i</label>
+		</state>
+		<state id="3" name="q3">
+			<x>580.0</x>
+			<y>110.0</y>
+			<label>leído in</label>
+		</state>
+		<state id="4" name="q4">
+			<x>760.0</x>
+			<y>110.0</y>
+			<label>TYPE int (regla 1)</label>
+			<final/>
+		</state>
+		<state id="5" name="q5">
+			<x>220.0</x>
+			<y>410.0</y>
+			<label>regla 2: {ID}</label>
+		</state>
+		<state id="6" name="q6">
+			<x>480.0</x>
+			<y>410.0</y>
+			<label>IDENTIFIER (regla 2)</label>
+			<final/>
+		</state>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>5</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>i</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>n</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read>t</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>i</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>n</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>t</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>L</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>i</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>n</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>t</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>L</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>D</read>
+		</transition>
+		<note>
+			<text>QUÉ RECONOCE: por qué 'int' es palabra reservada y no identificador (autómata NO determinista)
+EXPRESIÓN REGULAR: regla 1: "int"    regla 2: [a-zA-Z_][a-zA-Z0-9_]*
+SÍMBOLOS: i, n, t = esas letras    L = cualquier otra letra o _    D = dígito    λ = sin leer nada
+ACEPTA: int -&gt; llega a q4 Y a q6 (empate: gana la regla 1 por estar primero en lexer.l)
+        integer -&gt; intLLLL (solo q6: IDENTIFIER, la coincidencia más larga)    in -&gt; in (solo q6)
+RECHAZA: 2int -&gt; Dint (ninguna rama empieza con dígito)</text>
+			<x>40.0</x>
+			<y>520.0</y>
+		</note>
+	</automaton>
+</structure>
