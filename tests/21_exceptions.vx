@@ -1,6 +1,6 @@
-// try-catch, throw y assert
+// try-catch, throw y assert: todas las formas que acepta la gramática
 
-// ---- Un error de ejecución se atrapa y el programa continúa ----
+// ---- try-catch básico ----
 try {
     int a = 10;
     int b = 0;
@@ -11,7 +11,7 @@ try {
     print("caught:", e);
 }
 
-// ---- El error ocurre dentro de una función: el catch lo atrapa igual ----
+// ---- try-catch alrededor de una llamada a función ----
 func int get(vector<int> v, int i) { return v[i]; }
 try {
     print(get([1, 2, 3], 7));
@@ -75,7 +75,7 @@ for (int i = 0; i < len(divisors); i = i + 1) {
 }
 print("ok divisions:", ok);
 
-// ---- La recursión infinita se atrapa y el intérprete sigue sano ----
+// ---- try-catch alrededor de una llamada recursiva ----
 func int forever(int n) { return forever(n + 1); }
 func int fact(int n) { if (n <= 1) { return 1; } return n * fact(n - 1); }
 try {

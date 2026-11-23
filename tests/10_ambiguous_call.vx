@@ -1,5 +1,0 @@
-// Sobrecarga ambigua: con (1, 1) ninguna versión coincide exacto y las dos coinciden promoviendo int → float
-func float mix(int a, float b) { return a + b; }
-func float mix(float a, int b) { return a - b; }
-print(mix(1, 2.0));     // exacto: primera versión
-print(mix(1, 1));       // ambigua

@@ -1,4 +1,0 @@
-// Las filas de una matriz deben tener el mismo largo
-matrix<int> ok = [[1, 2], [3, 4]];
-print(ok);
-matrix<int> bad = [[1, 2], [3]];

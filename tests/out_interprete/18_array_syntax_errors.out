@@ -1,5 +1,0 @@
-[Invalid construct] line 2: 'vector' requires an element type, e.g. vector<int>
-[Syntax error] line 3: syntax error, unexpected vector, expecting int or float or bool or string
-[Syntax error] line 4: syntax error, unexpected ';', expecting ',' or ']'
-[Syntax error] line 5: syntax error, unexpected '[', expecting '('
-4 error(s) found; program not executed.

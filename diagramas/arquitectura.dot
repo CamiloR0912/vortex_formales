@@ -4,31 +4,35 @@ digraph {
   node [fontname="Helvetica", fontsize=11, shape=box, style="rounded,filled", fillcolor="#f4f4f4"];
   edge [fontname="Helvetica", fontsize=10];
 
-  subgraph cluster_construccion {
-    label="Construcción (script run)"; fontname="Helvetica"; style=dashed;
-    lexer_l   [label="lexer.l\nreglas léxicas", fillcolor="#dbe9f6"];
-    parser_y  [label="parser.y\ngramática y reglas de error", fillcolor="#dbe9f6"];
+  subgraph cluster_generacion {
+    label="Generación de los analizadores (script run)"; fontname="Helvetica"; style=dashed;
+    lexer_l   [label="lexer.l\nexpresiones regulares", fillcolor="#dbe9f6"];
+    parser_y  [label="parser.y\ngramática LALR(1)\ny reglas de error", fillcolor="#dbe9f6"];
     flex      [label="flex", shape=ellipse, style=filled];
-    bison     [label="bison -d -v", shape=ellipse, style=filled];
-    lex_c     [label="lex.yy.c\nAFD en C: yylex()"];
-    tab_c     [label="parser.tab.c\ntablas LALR(1): yyparse()"];
+    bison     [label="bison -d -v --graph", shape=ellipse, style=filled];
+    lex_c     [label="lex.yy.c\nAFD: yylex()"];
+    tab_c     [label="parser.tab.c\nautómata de pila: yyparse()"];
     tab_h     [label="parser.tab.h\ncódigos de token,\nYYSTYPE, YYLTYPE"];
-    gcc       [label="gcc", shape=ellipse, style=filled];
-    vortex    [label="vortex\nejecutable", fillcolor="#dff0d8"];
+    automata  [label="parser.output / parser.dot\nestados del autómata LALR(1)", fillcolor="#fcf3cf"];
+    gcc       [label="gcc\n(compila el analizador\ngenerado, como en clase)", shape=ellipse, style=filled];
+    vortex    [label="vortex\nléxico + sintáctico", fillcolor="#dff0d8"];
+    vlexer    [label="vortex_lexer\nsolo léxico", fillcolor="#dff0d8"];
 
     lexer_l -> flex -> lex_c -> gcc;
     parser_y -> bison;
     bison -> tab_c -> gcc;
     bison -> tab_h;
+    bison -> automata;
     tab_h -> lex_c [label="#include", style=dashed];
     gcc -> vortex;
+    gcc -> vlexer [label="-DLEXER_ONLY"];
   }
 
-  subgraph cluster_ejecucion {
-    label="Ejecución (./vortex programa.vx)"; fontname="Helvetica"; style=dashed;
+  subgraph cluster_analisis {
+    label="Análisis de un programa (./vortex programa.vx)"; fontname="Helvetica"; style=dashed;
     fuente  [label="programa.vx", fillcolor="#dbe9f6"];
-    yylex   [label="yylex()\nanalizador léxico"];
-    yyparse [label="yyparse()\nanalizador sintáctico"];
+    yylex   [label="Análisis léxico\nyylex()"];
+    yyparse [label="Análisis sintáctico\nyyparse()"];
     salida  [label="Syntactically valid program.\no lista de errores con su línea", fillcolor="#dff0d8"];
 
     fuente -> yylex [label="caracteres\n(yyin)"];

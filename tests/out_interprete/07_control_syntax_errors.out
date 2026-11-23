@@ -1,4 +1,0 @@
-[Invalid construct] line 3: body must be enclosed in braces { } (unexpected print, expecting '{')
-[Invalid construct] line 5: malformed 'for' header, expected for (init; condition; step) (unexpected ')')
-[Syntax error] line 8: syntax error, unexpected case, expecting '}'
-3 error(s) found; program not executed.

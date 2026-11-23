@@ -1,7 +1,0 @@
-// Una excepción lanzada con throw y nunca atrapada
-func void validate(int age) {
-    if (age < 0) { throw "invalid age: " + age; }
-    print("age ok:", age);
-}
-validate(20);
-validate(-5);

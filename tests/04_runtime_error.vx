@@ -1,6 +1,0 @@
-// Error en tiempo de ejecución: el programa corre hasta la línea 5 y se detiene
-int a = 10;
-int b = 0;
-print(a / 2);
-print(a / b);
-print("never printed");

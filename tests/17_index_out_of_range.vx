@@ -1,4 +1,0 @@
-// Índice fuera de rango
-vector<int> v = [10, 20, 30];
-print(v[2]);
-print(v[3]);

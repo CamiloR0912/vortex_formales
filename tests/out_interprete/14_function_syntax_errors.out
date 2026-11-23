@@ -1,4 +1,0 @@
-[Syntax error] line 3: syntax error, unexpected identifier, expecting ')'
-[Invalid construct] line 4: positional argument after a named argument
-[Invalid construct] line 5: function 'nobody' has no body; use { }
-3 error(s) found; program not executed.

@@ -11,11 +11,11 @@ El analizador se compone de dos módulos escritos por separado y enlazados en un
 | Analizador léxico | `lexer.l` | Flex 2.6.4 | Autómata finito determinista | Agrupar los caracteres en tokens y reportar los errores léxicos |
 | Analizador sintáctico | `parser.y` | Bison 3.8.2 | Autómata de pila LALR(1) | Validar que la secuencia de tokens cumple la gramática y reportar los errores sintácticos |
 
-La Figura 1 muestra las dos etapas del sistema: la construcción del ejecutable y su ejecución sobre un programa.
+La Figura 1 muestra cómo se generan los dos analizadores a partir de `lexer.l` y `parser.y`, y cómo cooperan al analizar un programa.
 
-![Figura 1: Construcción y ejecución del analizador](diagramas/arquitectura.png)
+![Figura 1: Generación de los analizadores y análisis de un programa](diagramas/arquitectura.png)
 
-*Figura 1: Construcción y ejecución del analizador.*
+*Figura 1: Generación de los analizadores y análisis de un programa.*
 
 ### 1.1 Construcción
 
@@ -247,7 +247,7 @@ El autómata completo del analizador sintáctico tiene 279 estados y no es legib
 
 ## 7. Pruebas
 
-La carpeta `tests/` contiene 30 programas de prueba. Cada `.vx` explica en comentarios qué se prueba, y el archivo `.out` del mismo nombre contiene la salida exacta que se espera del analizador.
+La carpeta `tests/` contiene 17 programas de prueba. Cada `.vx` explica en comentarios qué se prueba, y el archivo `.out` del mismo nombre contiene la salida exacta que se espera del analizador.
 
 ```
 bash tests/run_tests.sh            # compara la salida de cada .vx con su .out
@@ -258,10 +258,7 @@ bash tests/run_tests.sh --update   # regenera los .out con la salida actual
 |---|---|---|
 | Programas válidos: tipos, ámbitos, control de flujo, funciones, vectores y matrices, excepciones | 01, 02, 06, 09, 16, 21 | `Syntactically valid program.` |
 | Errores sintácticos y constructos inválidos | 03, 07, 14, 18, 24, 25 | Lista de errores con categoría y línea |
-| Programas con errores semánticos o de ejecución (tipos incompatibles, división por cero, índice fuera de rango, sobrecarga ambigua) | 04, 05, 08, 10–13, 15, 17, 19, 20, 22, 23 | `Syntactically valid program.`: son sintácticamente correctos; detectar estos errores corresponde a etapas posteriores |
 | Errores léxicos | `lexical errors/01`–`05` | Errores léxicos y los errores sintácticos que provocan |
-
-El tercer grupo delimita el alcance del analizador: demuestra que un programa puede ser sintácticamente válido y aun así incorrecto.
 
 ## 8. Archivos del proyecto
 

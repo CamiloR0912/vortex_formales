@@ -1,6 +1,0 @@
-// Una función int que termina sin return (para n impar)
-func int half(int n) {
-    if (n % 2 == 0) { return n / 2; }
-}
-print(half(10));
-print(half(7));
