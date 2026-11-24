@@ -1,0 +1,8 @@
+// Declaraciones mal formadas
+int = 5;                        // falta el nombre de la variable
+string s = ;                    // falta el valor
+float f;                        // sin inicializar
+matrix m = [[1, 2], [3, 4]];    // matrix sin tipo de elemento
+bool ok = true;
+int int = 3;                    // una palabra reservada no puede ser nombre
+print(ok);

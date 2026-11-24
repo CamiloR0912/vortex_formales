@@ -1,0 +1,32 @@
+// Programa completo: reporte de notas con funciones, switch, try-catch y assert
+
+vector<float> grades = [4.5, 3.2, 2.8, 5.0, 3.9];
+
+func float average(vector<float> xs) {
+    assert(len(xs) > 0, "empty list");
+    return sum(xs) / len(xs);
+}
+
+func string level(float g) {
+    if (g >= 4.5) { return "excellent"; }
+    else if (g >= 3.0) { return "pass"; }
+    return "fail";
+}
+
+int passed = 0;
+for (int i = 0; i < len(grades); i = i + 1) {
+    string l = level(grades[i]);
+    switch (l) {
+        case "excellent": { passed = passed + 1; print(grades[i], "excellent"); }
+        case "pass":      { passed = passed + 1; print(grades[i], "pass"); }
+        default:          { print(grades[i], "fail"); }
+    }
+}
+
+try {
+    print("average:", average(grades));
+    print("passed:", passed, "of", len(grades));
+    if (passed < 3) { throw "too many failures"; }
+} catch (e) {
+    print("report error:", e);
+}

@@ -1,0 +1,5 @@
+[Syntax error] line 3: syntax error, unexpected int, expecting ';'
+[Syntax error] line 4: syntax error, unexpected ';', expecting ')'
+[Syntax error] line 5: syntax error, unexpected ';', expecting ',' or ']'
+[Syntax error] line 6: syntax error, unexpected ';'
+4 error(s) found.

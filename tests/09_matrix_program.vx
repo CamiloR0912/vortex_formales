@@ -1,0 +1,27 @@
+// Un programa completo con matrices: suma de filas, traspuesta y reducciones
+
+matrix<int> m = [[1, 2, 3], [4, 5, 6]];
+
+func vector<int> row_sums(matrix<int> mat) {
+    vector<int> sums = [0, 0];
+    for (int i = 0; i < 2; i = i + 1) {
+        for (int j = 0; j < 3; j = j + 1) {
+            sums[i] = sums[i] + mat[i][j];
+        }
+    }
+    return sums;
+}
+
+matrix<int> t = [[0, 0], [0, 0], [0, 0]];
+for (int i = 0; i < 2; i = i + 1) {
+    for (int j = 0; j < 3; j = j + 1) {
+        t[j][i] = m[i][j];
+    }
+}
+
+vector<int> s = row_sums(m);
+print("matrix:", m);
+print("transposed:", t);
+print("row sums:", s);
+print("total:", sum(s), "max:", max(s), "min:", min(s));
+print("elements:", len(m) * len(m[0]));

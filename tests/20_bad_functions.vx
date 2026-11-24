@@ -1,0 +1,9 @@
+// Funciones y excepciones mal escritas
+func suma(int a, int b) { return a + b; }       // falta el tipo de retorno
+func int resta(int a int b) { return a - b; }   // falta ',' entre parámetros
+func int doble(int n);                          // función sin cuerpo
+try { print(1); }                               // try sin catch
+print(2);
+catch (e) { print(e); }                         // catch sin try
+throw;                                          // throw sin valor
+print(doble(3));

@@ -1,0 +1,6 @@
+[Syntax error] line 2: syntax error, unexpected '=', expecting identifier
+[Syntax error] line 3: syntax error, unexpected ';'
+[Invalid construct] line 4: variable 'f' must be initialized
+[Invalid construct] line 5: 'matrix' requires an element type, e.g. matrix<int>
+[Syntax error] line 7: syntax error, unexpected int, expecting identifier
+5 error(s) found.

@@ -1,0 +1,22 @@
+// Expresiones: precedencia, operadores unarios, lógicos, comparaciones y cadenas
+
+int a = 7;
+int b = 3;
+float r = 2.5;
+bool flag = true;
+
+int p1 = a + b * 2;                     // 13: * antes que +
+int p2 = (a + b) * 2;                   // 20: los paréntesis cambian el orden
+int p3 = a - b - 1;                     // 3: asociativo por la izquierda
+int p4 = -a + b % 2;                    // menos unario y módulo
+float p5 = r * a / 2;
+bool p6 = !flag || a > b && b != 0;     // && liga más que ||
+bool p7 = (a >= 7) == (b <= 3);
+
+string name = "Vortex";
+string msg = "Hola, " + name + "! a = " + a;
+
+print(p1, p2, p3, p4, p5);
+print(p6, p7);
+print(msg);
+print("¿a es par?", a % 2 == 0);

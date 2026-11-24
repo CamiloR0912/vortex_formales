@@ -1,0 +1,8 @@
+// Errores de sintaxis por tokens que faltan: ';', ')', ']' y operandos
+int a = 5
+int b = 3;
+print(a + b;
+vector<int> v = [1, 2, 3;
+int c = a * ;
+float d = (a + b) * 2.0;
+print(d);
